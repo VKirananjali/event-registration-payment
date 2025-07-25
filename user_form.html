@@ -5,14 +5,21 @@
 </head>
 <body>
     <h2>Register User</h2>
-    <form action="register.php" method="post">
+    <form id="registerForm" method="post">
         <label>Username:</label>
-        <input type="text" name="username" required><br><br>
+        <input type="text" name="username" id="name" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+
+        <label>Phone number:</label>
+        <input type="text" name="phone" id="phone" required><br><br>
 
         <label>Password:</label>
-        <input type="password" name="password" required><br><br>
+        <input type="password" name="password" id="password" required><br><br>
 
         <input type="submit" value="Register">
     </form>
+    <script src="/event_registration/script.js"></script>
 </body>
 </html>
