@@ -32,18 +32,21 @@ try {
     $error = 'Razorpay Signature Verification Failed';
 }
 
-if ($success) {
-    // Payment is successful, update your database or perform other actions
+$response = ['status' => $success, 'message' => $error];
+return $response; // Return true if verification is successful, false otherwise
 
-    // Fetch the payment details
-    $payment = $api->payment->fetch($payment_id);
+// if ($success) {
+//     // Payment is successful, update your database or perform other actions
 
-    // You can access payment details like $payment->amount, $payment->status, etc.
-    $amount_paid = $payment->amount / 100; // Convert amount from paise to rupees
+//     // Fetch the payment details
+//     $payment = $api->payment->fetch($payment_id);
 
-    echo "Payment Successful! Amount: $amount_paid INR";
-} else {
-    // Payment failed, handle accordingly
-    echo "Payment Failed! Error: $error";
-}
+//     // You can access payment details like $payment->amount, $payment->status, etc.
+//     $amount_paid = $payment->amount / 100; // Convert amount from paise to rupees
+
+//     echo "Payment Successful! Amount: $amount_paid INR";
+// } else {
+//     // Payment failed, handle accordingly
+//     echo "Payment Failed! Error: $error";
+// }
 ?>

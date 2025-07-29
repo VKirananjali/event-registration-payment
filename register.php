@@ -8,6 +8,8 @@ $phone = $_SESSION['phone'];
 //$orderid = $_SESSION['order_id'];
 $orderid = 'pt-345626';
 
+$paymentId = $_POST['razorpay_payment_id'];
+
 $sql_insert = "INSERT INTO users (username, email, phone, payment_id) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql_insert);
 $stmt->bind_param("ssss", $user, $email, $phone, $orderid);
