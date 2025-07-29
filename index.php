@@ -40,29 +40,37 @@ echo '<script src="https://checkout.razorpay.com/v1/checkout.js"></script>';
 
 
 // Add a script to handle the payment
-echo '<script>
-    function startPayment() {
-        var options = {
-            key: "' . $api_key . '",
-            amount: ' . $order->amount . ',
-            currency: "' . $order->currency . '",
-            name: "YAICESS",
-            description: "Payment for -- session",
-            image: "https://cdn.razorpay.com/logos/GhRQcyean79PqE_medium.png",
-            order_id: "' . $order_id . '",
-            prefill: {
-                name: $user,
-                email: $email,
-                contact: $contact
-            },
-            theme:
-            {
-                "color": "#738276"
-            },
-            callback_url: "' . $callback_url . '"
-        };
-        var rzp = new Razorpay(options);
-        rzp.open();
-    }
-</script>';
+echo '
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body onload="startPayment()">
+<script>
+function startPayment() {
+    var options = {
+        "key": "' . $api_key . '",
+        "amount": "' . $order->amount . '",
+        "currency": "' . $order->currency . '",
+        "name": "YAICESS",
+        "description": "Payment for session",
+        "image": "https://cdn.razorpay.com/logos/GhRQcyean79PqE_medium.png",
+        "order_id": "' . $order_id . '",
+        "prefill": {
+            "name": "' . $user . '",
+            "email": "' . $email . '",
+            "contact": "' . $contact . '"
+        },
+        "theme": {
+            "color": "#738276"
+        },
+        "callback_url": "' . $callback_url . '"
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+}
+</script>
+</body>
+</html>';
 ?>

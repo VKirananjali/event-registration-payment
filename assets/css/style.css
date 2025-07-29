@@ -38,10 +38,10 @@ body {
 .nav-links li a:hover {
     text-decoration: underline;
 }
-.nav-links li a.active {
-  color: #FFD700;     /* Example: gold color or your preferred highlight color */
+/* .nav-links li a.active {
+  color: #FFD700;     // Example: gold color or your preferred highlight color 
   text-decoration: underline;
-}
+} */
 
 
 .hero {

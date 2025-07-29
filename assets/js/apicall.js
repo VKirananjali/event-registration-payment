@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded', function() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, phone})
     })
-    .catch(err => console.error(err));
+    .then(response => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.text(); 
+    })
+    .then(script => {
+      const container = document.createElement('div');
+      container.innerHTML = script;
+      document.body.appendChild(container);
+    
+      startPayment();
+    })
+    .catch(err => {
+      console.error('Error:', err);
+    });
   });
 });
