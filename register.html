@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YAICESS Event Registration</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style_reg.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">I4C 2025</div>
+    <ul class="nav-links">
+      <li><a href="home.html#home">Home</a></li>
+      <li><a href="home.html#about">About</a></li>
+      <li><a href="home.html#speakers">Speakers</a></li>
+      <li><a href="home.html#schedule">Schedule</a></li>
+      <li><a href="home.html#register" class="active">Register</a></li>
+      <li><a href="admin.html">Analytics</a></li>
+    </ul>
+  </nav>
+
+  <!-- Registration Form Section -->
+  <section class="register-section">
+    <div class="container">
+      <h2 class="section-title">Event Registration</h2>
+      <form method="POST" class="registration-form" id="registrationForm" novalidate>
+        <label for="fullName">Full Name<span>*</span></label>
+        <input type="text" id="fullname" name="fullName" required />
+
+        <label for="email">Email Address<span>*</span></label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" required/>
+
+        <div class="consent-checkbox">
+          <input type="checkbox" id="consent" name="consent" required />
+          <label for="consent">I agree to the event <a href="#" target="_blank" rel="noopener noreferrer">terms and privacy policy</a>.<span>*</span></label>
+        </div>
+        
+        <button type="submit" class="register-btn">Proceed to Payment</button>
+      </form>
+    </div>
+  </section>
+</body>
+<script src="assets/js/apicall.js"></script>
+</html>
+

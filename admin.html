@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/admin_login.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">YAICESS</div>
+    <ul class="nav-links">
+        <li><a href="home.html#home">Home</a></li>
+        <li><a href="home.html#about">About</a></li>
+        <li><a href="home.html#speaker">Speakers</a></li>
+        <li><a href="home.html#schedule">Schedule</a></li>
+        <li><a href="home.html#venue">Venue</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="admin.html">Analytics</a></li>
+    </ul>
+  </nav>
+
+  <div class="login-container">
+    <h2>Login as Admin to view Registrations</h2>
+    <em>(Only for Admins)</em>
+    <br>
+    <br>
+    <form  method="POST" action="http://localhost:8080/event_registration/admin.php">
+      <input type="text" name="email" placeholder="Enter your Email or username" required>
+      <input type="password" name="pwd" placeholder="Enter your Password" required>
+      <button type="submit" name="submit">Login</button>
+    </form>
+  </div>
+</body>
+
+</html>
