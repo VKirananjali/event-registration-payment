@@ -1,86 +1,152 @@
 .registration-form {
-      max-width: 700px;
-      margin: 40px auto 80px;
-      padding: 20px;
-      background: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      color: #222;
-    }
-    .registration-form label {
-      display: block;
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 6px;
-      color: #004080;
-    }
-    .registration-form label span {
-      color: #d9534f; /* red for required fields */
-      margin-left: 3px;
-    }
-    .registration-form input[type="text"],
-    .registration-form input[type="email"],
-    .registration-form input[type="tel"],
-    .registration-form select,
-    .registration-form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1.5px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s;
-      resize: vertical;
-    }
-    .registration-form input[type="text"]:focus,
-    .registration-form input[type="email"]:focus,
-    .registration-form input[type="tel"]:focus,
-    .registration-form select:focus,
-    .registration-form textarea:focus {
-      border-color: #00427E;
-      outline: none;
-    }
-    .registration-form textarea {
-      min-height: 80px;
-    }
-    .consent-checkbox {
-      margin-top: 20px;
-      font-weight: normal;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-    }
-    .consent-checkbox input[type="checkbox"] {
-      margin-right: 10px;
-      width: 18px;
-      height: 18px;
-    }
-    .register-btn {
-      display: block;
-      width: 100%;
-      margin-top: 32px;
-      padding: 16px 0;
-      font-size: 1.18rem;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(90deg, #00427E, #0073e6);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      letter-spacing: 0.5px;
-      text-align: center;
-    }
-    .register-btn:hover,
-    .register-btn:focus {
-      background: linear-gradient(90deg, #0073e6, #00427E);
-      transform: translateY(-2px) scale(1.03);
-      outline: none;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .registration-form {
-        margin: 20px 15px 60px;
-        padding: 16px;
-      }
-    }
+  max-width: 720px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 66, 126, 0.1);
+  color: #003366;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #00427E;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: grid;
+  gap: 24px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-top: 10px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 12px 14px 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  background: #fafafa;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-wrapper input:focus {
+  border-color: #0073e6;
+  background-color: #fff;
+}
+
+.input-wrapper label {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  color: #666;
+  font-size: 0.95rem;
+  background-color: transparent;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:valid + label {
+  top: -10px;
+  left: 10px;
+  background: #fff;
+  padding: 0 6px;
+  font-size: 0.8rem;
+  color: #00427E;
+}
+
+.input-wrapper label span {
+  color: #d9534f;
+  margin-left: 3px;
+}
+
+/* Checkbox styles */
+.consent-checkbox {
+  margin-top: 24px;
+  font-size: 0.95rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  transition: 0.2s;
+}
+
+.checkbox-wrapper input:checked ~ .custom-checkbox {
+  background-color: #00427E;
+  border-color: #00427E;
+}
+
+.checkbox-wrapper input:checked ~ .custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #004299;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .registration-form {
+    padding: 24px 20px;
+    margin: 30px 15px;
+  }
+}

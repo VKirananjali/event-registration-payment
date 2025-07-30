@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const phone = document.getElementById('phone').value;
     
     console.log(`Name: ${name}, Email: ${email}, Phone: ${phone}`);
-    fetch('http://localhost:8080/event_registration/index.php', { // change the path
+    fetch('http://localhost:8080/event_registration/index.php', { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, phone})
     })
     .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error('HTTP error, status = ' + response.status);
       return response.text(); 
     })
     .then(script => {
