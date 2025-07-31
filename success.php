@@ -6,7 +6,7 @@ $_POST = $_POST ?: json_decode(file_get_contents('php://input'), true); // In ca
 
 $verification = include('verify.php'); // verify.php returns an array
 
-if ($verification['status'] === 'success') {
+if ($verification['status']) {
     if (isset($_POST['razorpay_payment_id'])) {
       include 'register.php'; // Now you can use $_POST in register.php
     }

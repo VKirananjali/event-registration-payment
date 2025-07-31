@@ -5,8 +5,7 @@ include('database_connection.php');
 $user = $_SESSION['fullName'];
 $email = $_SESSION['email'];
 $phone = $_SESSION['phone']; 
-//$orderid = $_SESSION['order_id'];
-$orderid = 'pt-345626';
+$orderid = $_SESSION['order_id'];
 
 $paymentId = $_POST['razorpay_payment_id'];
 
