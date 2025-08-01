@@ -1,4 +1,9 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: application/json');
+
 include 'database_connection.php';
 
 // Create table if not exists
@@ -8,8 +13,8 @@ $createTableSQL = "
         count INT DEFAULT 0
     );
 ";
-$stmt->$conn->query($createTableSQL);
-$stmt->execute();
+$conn->query($createTableSQL);
+
 // Insert initial row if not exists
 $checkExists = $conn->query("SELECT COUNT(*) as count FROM page_views WHERE id = 1");
 $row = $checkExists->fetch_assoc();
@@ -28,10 +33,11 @@ $viewQuery = $conn->query("SELECT count FROM page_views WHERE id = 1");
 $pageViews = $viewQuery->fetch_assoc()['count'];
 
 // Return as JSON
-echo json_encode([
+
+$response= [
   'registrations' => $regCount,
   'page_views' => $pageViews
-]);
-
+];
+echo json_encode($response);
 $conn->close();
 ?>

@@ -1,20 +1,23 @@
-
 <?php
+session_start();
+include('connection.php');
 
-$_POST = $_POST ?: json_decode(file_get_contents('php://input'), true); // In case Razorpay sends JSON
+$user = $_POST['fullName'];
+$email = $_POST['email'];
+$phone = $_POST['phone']; 
 
-$verification = include('verify.php'); // verify.php returns an array
 
-if ($verification['status']) {
-    if (isset($_POST['razorpay_payment_id'])) {
-      include 'register.php'; // Now you can use $_POST in register.php
-    }
-} else {
-    echo "<h2>Payment verification failed</h2><p>{$verification['message']}</p>";
-    exit();
-}
+$sql_insert = "INSERT INTO users_reg (username, email, phone) VALUES (?, ?, ?, ?)";
+$stmt = $conn->prepare($sql_insert);
+$stmt->bind_param("ssss", $user, $email, $phone, $orderid);
+
+$stmt->execute();
+
+$id= $stmt->insert_id;
+
+$stmt->close();
+$conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,5 +39,4 @@ if ($verification['status']) {
     </div>
 </body>
 </html>
-
 

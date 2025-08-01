@@ -3,6 +3,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location:  http://localhost:8080/event_registration/home.html"); 
+header("Location:  http://localhost:8080/event_registration/index.html"); 
 exit();
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$input = json_decode(file_get_contents("php://input"), true);
 include('database_connection.php');
 
 $user = $_SESSION['fullName'];
@@ -7,7 +8,7 @@ $email = $_SESSION['email'];
 $phone = $_SESSION['phone']; 
 $orderid = $_SESSION['order_id'];
 
-$paymentId = $_POST['razorpay_payment_id'];
+//$paymentId = $input['payment_id'];
 
 $sql_insert = "INSERT INTO users (username, email, phone, payment_id) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql_insert);

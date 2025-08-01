@@ -5,8 +5,8 @@ require('razorpay-php/Razorpay.php');
 use Razorpay\Api\Api;
 
 // Initialize Razorpay with your key and secret
-$api_key = 'rzp_test_Y2wy8t1wD1AFaA';
-$api_secret = 'zSqRMpIa2ljBBpkieFYGmfLa';
+$api_key = $razorpay_config['api_key'];
+$api_secret = $razorpay_config['api_secret'];
 
 $api = new Api($api_key, $api_secret);
 
@@ -35,18 +35,4 @@ try {
 $response = ['status' => $success, 'message' => $error];
 return $response; // Return true if verification is successful, false otherwise
 
-// if ($success) {
-//     // Payment is successful, update your database or perform other actions
-
-//     // Fetch the payment details
-//     $payment = $api->payment->fetch($payment_id);
-
-//     // You can access payment details like $payment->amount, $payment->status, etc.
-//     $amount_paid = $payment->amount / 100; // Convert amount from paise to rupees
-
-//     echo "Payment Successful! Amount: $amount_paid INR";
-// } else {
-//     // Payment failed, handle accordingly
-//     echo "Payment Failed! Error: $error";
-// }
 ?>
