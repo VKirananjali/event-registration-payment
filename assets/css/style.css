@@ -23,7 +23,13 @@ body {
     z-index: 1000;
 }
 
-.nav-links {
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.nav-links{
     list-style: none;
     display: flex;
     gap: 1.5rem;
@@ -37,6 +43,34 @@ body {
 
 .nav-links li a:hover {
     text-decoration: underline;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #00427E;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
 }
 
 .hero {

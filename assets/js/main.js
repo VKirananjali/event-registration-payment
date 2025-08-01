@@ -44,4 +44,17 @@ window.addEventListener('scroll', onScroll);
 
 // Optional: run at page load to highlight correct nav
 document.addEventListener('DOMContentLoaded', onScroll);
+document.addEventListener('DOMContentLoaded', function () {
+  const navLinks = document.querySelector('.nav-links'); 
+  
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+});
 
