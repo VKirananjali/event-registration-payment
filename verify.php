@@ -1,6 +1,7 @@
 <?php
 // Include the Razorpay PHP library
 require('razorpay-php/Razorpay.php');
+include('config.php');
 
 use Razorpay\Api\Api;
 
